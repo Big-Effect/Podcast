@@ -8,14 +8,14 @@
         @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap');
 
         :root {
-            /* חזרה לפלטת צבעים בהירה ומקצועית */
-            --primary: #6366f1; /* Indigo */
+            /* פלטת צבעים בהירה ומקצועית */
+            --primary: #6366f1; /* Indigo - צבע ראשי */
             --primary-dark: #4338ca;
-            --secondary: #10b981; /* Emerald Green */
-            --accent: #f59e0b; /* Amber/Gold */
+            --secondary: #10b981; /* Emerald Green - לוויים */
+            --accent: #f59e0b; /* Amber/Gold - להדגשות ומתנות */
             --bg-body: #f8fafc;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
+            --text-main: #1e293b; /* טקסט כהה */
+            --text-muted: #64748b; /* טקסט אפור */
             --white: #ffffff;
         }
 
@@ -25,10 +25,8 @@
 
         body {
             font-family: 'Heebo', sans-serif;
-            /* רקע בהיר עם טקסטורת אולפן עדינה מאוד ברקע (קבועה בעת גלילה) */
-            background: linear-gradient(rgba(248, 250, 252, 0.97), rgba(248, 250, 252, 0.97)), url('https://images.unsplash.com/photo-1581337204873-ef36aa186caa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-attachment: fixed;
-            background-size: cover;
+            /* רקע כללי בהיר נקי */
+            background-color: var(--bg-body);
             color: var(--text-main);
             margin: 0;
             padding: 0;
@@ -41,17 +39,19 @@
             padding: 2rem 1rem;
         }
 
-        /* --- עיצוב הבאנר העליון החדש --- */
+        /* --- עיצוב הבאנר העליון המעודכן --- */
         header {
             text-align: center;
             margin-bottom: 4rem;
-            /* תמונת באנר של קונסולה, עם שכבת ריכוך לבנה מעליה */
-            background-image: linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(248, 250, 252, 1)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            /* החלפתי לתמונה של מיקרופונים לפודקאסט בלבד (ללא אנשים/כלים).
+               שיניתי את ה-rgba הראשון מ-0.85 ל-0.50 כדי שהתמונה תהיה הרבה יותר ברורה.
+            */
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.50), rgba(248, 250, 252, 1)), url('https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center center;
-            padding: 5rem 1rem 3rem; /* ריווח פנימי גדול יותר */
-            margin-top: -2rem; /* כדי שהבאנר ייצמד לחלק העליון */
-            border-radius: 0 0 30px 30px; /* פינות עגולות רק למטה */
+            padding: 6rem 1rem 4rem; /* הגדלתי קצת את הגובה */
+            margin-top: -2rem;
+            border-radius: 0 0 30px 30px;
             box-shadow: 0 20px 40px -20px rgba(0,0,0,0.1);
         }
 
@@ -60,16 +60,17 @@
             font-weight: 900;
             color: var(--text-main);
             margin-bottom: 0.5rem;
-            /* צל עדין לטקסט כדי שייקרא טוב על הרקע */
-            text-shadow: 0 2px 10px rgba(255,255,255,0.8);
+            /* חיזקתי את הצל של הטקסט כדי שיהיה קריא בבירור על התמונה החדשה */
+            text-shadow: 0 2px 20px rgba(255,255,255,0.9), 0 0 5px rgba(255,255,255,0.5);
         }
 
         .subtitle {
             font-size: 1.35rem;
             color: var(--text-main);
-            font-weight: 400;
+            font-weight: 700; /* הדגשתי קצת את כותרת המשנה */
             max-width: 700px;
             margin: 0 auto 1.5rem;
+            text-shadow: 0 1px 10px rgba(255,255,255,0.8);
         }
 
         .vat-note {
@@ -89,15 +90,14 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
             align-items: start;
-            margin-top: -2rem; /* חפיפה קלה עם הבאנר */
+            margin-top: -3rem; /* חפיפה גדולה יותר עם הבאנר */
         }
 
-        /* Card Styles - חזרה ללבן נקי */
+        /* Card Styles - לבן נקי */
         .card {
             background: var(--white);
             border-radius: 1.5rem;
             padding: 2.5rem;
-            /* צל רך יותר */
             box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 10px -5px rgba(0,0,0,0.02);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
@@ -118,7 +118,6 @@
             border: 2px solid var(--primary);
             box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.2);
             z-index: 1;
-            /* רקע כחלחל עדין מאוד למודגש */
             background: linear-gradient(to bottom right, #ffffff, #f5f7ff);
         }
 
@@ -197,7 +196,7 @@
 
         /* Gift Box - Light Style */
         .gift-box {
-            background: #fffbeb; /* רקע צהבהב בהיר */
+            background: #fffbeb;
             border: 2px dashed var(--accent);
             border-radius: 1rem;
             padding: 1.5rem;
@@ -246,7 +245,7 @@
             display: block;
             width: 100%;
             text-align: center;
-            background-color: var(--text-main); /* כפתור שחור/כהה */
+            background-color: var(--text-main);
             color: white;
             text-decoration: none;
             font-weight: 800;
@@ -258,11 +257,10 @@
         }
 
         .purchase-btn:hover {
-            background-color: var(--primary); /* בהובר הופך לכחול */
+            background-color: var(--primary);
             transform: scale(1.02);
         }
         
-        /* Featured button is primary color by default */
         .featured .purchase-btn {
              background-color: var(--primary);
         }
@@ -283,7 +281,6 @@
             overflow: hidden;
         }
         
-        /* פס צבע עדין בתחתית */
         .cta-section::after {
             content: '';
             position: absolute;
@@ -322,9 +319,9 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            header { padding: 3rem 1rem 2rem; margin-top:0; border-radius: 0 0 20px 20px;}
+            header { padding: 4rem 1rem 3rem; margin-top:0; border-radius: 0 0 20px 20px;}
             h1 { font-size: 2.25rem; }
-            .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; gap: 2rem;}
+            .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; gap: 2rem; margin-top: -1rem;}
             .cta-section { padding: 3rem 1.5rem; margin-top: 3rem; }
             .contact-btn { font-size: 1.1rem; width: 100%; justify-content: center; padding: 1rem; }
         }
