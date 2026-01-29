@@ -8,14 +8,15 @@
         @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap');
 
         :root {
-            --primary: #6366f1; /* Indigo */
-            --primary-dark: #4338ca;
-            --secondary: #10b981; /* Emerald */
-            --accent: #f59e0b; /* Amber/Gold */
-            --bg: #f8fafc;
-            --text: #1e293b;
-            --white: #ffffff;
-            --gray-light: #f1f5f9;
+            /* פלטת צבעים חדשה - אווירת אולפן */
+            --bg-main: #0f172a; /* כחול-אפור כהה מאוד */
+            --bg-card: #1e293b; /* אפור כהה לכרטיסים */
+            --primary-gold: #f59e0b; /* זהב/ענבר - צבע הדגש הראשי */
+            --primary-glow: rgba(245, 158, 11, 0.4);
+            --secondary-teal: #2dd4bf; /* טורקיז עדין לויים */
+            --text-light: #f1f5f9; /* לבן-אפרפר לטקסט */
+            --text-muted: #94a3b8; /* אפור לטקסט משני */
+            --accent-red: #ef4444;
         }
 
         *, *::before, *::after {
@@ -24,260 +25,310 @@
 
         body {
             font-family: 'Heebo', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-main);
+            color: var(--text-light);
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            /* תמונת רקע עדינה של אולפן עם שכבת כיסוי כהה */
+            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 1)), url('https://images.unsplash.com/photo-1598653222000-6b7b7a552625?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 4rem 1rem;
         }
 
+        /* Header styling */
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 900;
-            color: var(--primary-dark);
+            color: var(--primary-gold);
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            /* אפקט זוהר עדין לכותרת */
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
         }
 
         .subtitle {
-            font-size: 1.25rem;
-            color: #64748b;
-            max-width: 600px;
-            margin: 0 auto 1rem;
+            font-size: 1.35rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            font-weight: 300;
         }
 
         .vat-note {
-            background-color: #e0e7ff;
-            color: var(--primary-dark);
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--primary-gold);
             display: inline-block;
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
             font-size: 0.9rem;
             font-weight: bold;
+            border: 1px solid var(--primary-gold);
         }
 
         /* Grid Layout */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: start;
         }
 
-        /* Card Styles */
+        /* Card Styles - Dark Theme */
         .card {
-            background: var(--white);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--bg-card);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            /* מסגרת עדינה שמשתלבת ברקע */
+            border: 1px solid #334155;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            border: 1px solid var(--gray-light);
             display: flex;
             flex-direction: column;
             height: 100%;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-8px);
+            /* בהובר - הכרטיס "נדלק" עם מסגרת זהב וזוהר */
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px var(--primary-glow);
         }
 
-        /* Special Card Styles */
+        /* Featured Card Special Styles */
         .card.featured {
-            border: 2px solid var(--primary);
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.15);
+            /* הכרטיס המודגש תמיד זוהר */
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 25px var(--primary-glow);
+            background: linear-gradient(to bottom right, var(--bg-card), rgba(245, 158, 11, 0.05));
             z-index: 1;
+            transform: scale(1.05);
+        }
+        
+        .card.featured:hover {
+             transform: scale(1.05) translateY(-8px);
         }
 
-        .card.gift {
-            border: 2px dashed var(--secondary);
-            background: #ecfdf5;
-        }
 
         .badge {
             position: absolute;
-            top: -12px;
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: bold;
+            background: var(--primary-gold);
+            color: var(--bg-main);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 800;
             text-transform: uppercase;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px var(--primary-glow);
             white-space: nowrap;
-        }
-
-        .badge.gift-badge {
-            background: var(--secondary);
         }
 
         .card-header {
             text-align: center;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--gray-light);
-            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1.5rem;
         }
 
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: var(--text-light);
         }
 
         .price {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 900;
-            color: var(--text);
+            color: var(--primary-gold);
+            line-height: 1;
         }
 
         .currency {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             vertical-align: top;
+            opacity: 0.8;
         }
 
         .period {
-            font-size: 1rem;
-            color: #64748b;
+            font-size: 1.1rem;
+            color: var(--text-muted);
             font-weight: 400;
+            margin-top: 0.5rem;
         }
 
         /* Features List */
         .features {
             list-style: none;
             padding: 0;
-            margin: 0 0 1.5rem;
+            margin: 0 0 2rem;
             flex-grow: 1;
         }
 
         .features li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: flex-start;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
         }
 
         .icon {
-            margin-left: 0.5rem;
+            margin-left: 0.75rem;
             flex-shrink: 0;
+            font-size: 1.2rem;
         }
 
-        .icon-check { color: var(--secondary); }
-        .icon-x { color: #ef4444; }
+        .icon-check { color: var(--secondary-teal); filter: drop-shadow(0 0 5px rgba(45, 212, 191, 0.5)); }
+        .icon-x { color: var(--accent-red); opacity: 0.7; }
 
-        /* Gift Box Section inside Card */
+        /* Gift Box - Studio Style */
         .gift-box {
-            background: #fffbeb;
-            border: 1px solid #fcd34d;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin-top: auto; /* Pushes to bottom */
+            background: rgba(245, 158, 11, 0.08); /* רקע זהב שקוף מאוד */
+            border: 1px dashed var(--primary-gold);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-top: auto;
         }
 
         .gift-title {
             font-weight: bold;
-            color: #b45309;
-            margin-bottom: 0.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         .gift-value {
-            font-size: 0.8rem;
-            background: #fcd34d;
-            color: #78350f;
-            padding: 0.1rem 0.4rem;
+            font-size: 0.85rem;
+            background: var(--primary-gold);
+            color: var(--bg-main);
+            padding: 0.2rem 0.6rem;
             border-radius: 4px;
             margin-right: auto;
+            font-weight: 800;
         }
 
         .gift-options {
-            font-size: 0.85rem;
-            color: #4b5563;
+            font-size: 0.95rem;
+            color: var(--text-muted);
         }
 
         .gift-option-item {
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
             position: relative;
-            padding-right: 1rem;
+            padding-right: 1.2rem;
         }
         
         .gift-option-item::before {
-            content: "•";
+            content: "►"; /* שינוי אייקון בוליט למשהו יותר טכני */
             position: absolute;
             right: 0;
-            color: var(--accent);
+            color: var(--secondary-teal);
+            font-size: 0.8rem;
+            top: 4px;
         }
 
-        /* Footer */
-        .cta-section {
-            text-align: center;
-            margin-top: 4rem;
-            padding: 3rem;
-            background: var(--white);
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-btn {
-            display: inline-block;
-            background: #25D366; /* WhatsApp Green */
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            font-size: 1.25rem;
-            transition: background 0.3s;
-            margin-top: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-btn:hover {
-            background: #128C7E;
-        }
-
-        /* Purchase Button inside cards */
+        /* Purchase Button */
         .purchase-btn {
             display: block;
             width: 100%;
             text-align: center;
-            background-color: var(--primary);
-            color: white;
+            background: transparent; /* רקע שקוף בהתחלה */
+            color: var(--primary-gold);
             text-decoration: none;
             font-weight: bold;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            margin-top: 1rem;
-            transition: background-color 0.3s;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            border: 2px solid var(--primary-gold); /* מסגרת זהב */
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
 
         .purchase-btn:hover {
-            background-color: var(--primary-dark);
+            background: var(--primary-gold);
+            color: var(--bg-main);
+            box-shadow: 0 0 25px var(--primary-glow);
+        }
+
+        /* Footer / CTA */
+        .cta-section {
+            text-align: center;
+            margin-top: 6rem;
+            padding: 4rem 2rem;
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+            border: 1px solid #334155;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* הוספת פס זהב זוהר בחלק העליון של הפוטר */
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--primary-gold);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+        
+        .cta-section h2 {
+            color: var(--primary-gold);
+            font-size: 2rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #25D366; /* WhatsApp Green - השארתי ירוק כי זה המותג */
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            transition: all 0.3s;
+            margin-top: 2rem;
+            box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-btn:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px -5px rgba(37, 211, 102, 0.6);
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .cta-section { padding: 1.5rem; }
-            .contact-btn { font-size: 1.1rem; width: 100%; justify-content: center; }
+            h1 { font-size: 2.25rem; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+            .card.featured { transform: none; }
+            .card.featured:hover { transform: translateY(-8px); }
+            .cta-section { padding: 2rem 1.5rem; margin-top: 4rem; }
+            .contact-btn { font-size: 1.1rem; width: 100%; justify-content: center; padding: 1rem; }
         }
     </style>
 </head>
@@ -286,13 +337,12 @@
 <div class="container">
     <header>
         <h1>מחירון אולפן והפקת תוכן</h1>
-        <p class="subtitle">הפכו את הידע שלכם לנכס דיגיטלי עם מעטפת עסקית מלאה</p>
-        <div class="vat-note">✨ כל המחירים במחירון כוללים מע"מ ✨</div>
+        <p class="subtitle">הפכו את הידע שלכם לנכס דיגיטלי עם מעטפת עסקית מלאה, באיכות סאונד ותמונה ללא פשרות.</p>
+        <div class="vat-note">✨ המחירים כוללים מע"מ | ציוד קצה עליון ✨</div>
     </header>
 
     <div class="pricing-grid">
         
-        <!-- Card 1: Basic -->
         <div class="card">
             <div class="card-header">
                 <div class="card-title">חבילת BASIC</div>
@@ -300,21 +350,20 @@
             </div>
             <ul class="features">
                 <li><span class="icon icon-check">✔</span> עריכת וידאו בסיסית</li>
-                <li><span class="icon icon-check">✔</span> סנכרון מצלמות וסאונד</li>
+                <li><span class="icon icon-check">✔</span> סנכרון מצלמות וסאונד מקצועי</li>
                 <li><span class="icon icon-check">✔</span> חיתוך דוברים (Multicam)</li>
             </ul>
             <div class="gift-box">
                 <div class="gift-title">🎁 בונוס לבחירה <span class="gift-value">שווי 250 ₪</span></div>
                 <div class="gift-options">
                     <div class="gift-option-item">מוזיקה לפתיח וסגיר</div>
-                    <div style="text-align:center; font-weight:bold; font-size:0.8rem; margin:2px 0;">או</div>
+                    <div style="text-align:center; font-weight:bold; font-size:0.8rem; margin:4px 0; color:var(--primary-gold);">— או —</div>
                     <div class="gift-option-item">קובץ אקסל מיפוי נושאים</div>
                 </div>
             </div>
             <a href="https://meshulam.co.il/quick_payment?b=9ebc55eeae66dde917047f1f62e38498" target="_blank" class="purchase-btn">לרכישה מהירה</a>
         </div>
 
-        <!-- Card 2: Pro -->
         <div class="card featured">
             <div class="badge">הכי משתלמת ⭐</div>
             <div class="card-header">
@@ -331,14 +380,13 @@
                 <div class="gift-title">🎁 בונוס לבחירה <span class="gift-value">שווי 500 ₪</span></div>
                 <div class="gift-options">
                     <div class="gift-option-item">הקמת ערוץ והעלאה לספוטיפיי/אפל</div>
-                    <div style="text-align:center; font-weight:bold; font-size:0.8rem; margin:2px 0;">או</div>
+                    <div style="text-align:center; font-weight:bold; font-size:0.8rem; margin:4px 0; color:var(--primary-gold);">— או —</div>
                     <div class="gift-option-item">עריכת 2 סרטונים קצרים (Reels)</div>
                 </div>
             </div>
             <a href="https://meshulam.co.il/quick_payment?b=9ebc55eeae66dde917047f1f62e38498" target="_blank" class="purchase-btn">לרכישה מהירה</a>
         </div>
 
-        <!-- Card 3: Extended -->
         <div class="card">
             <div class="card-header">
                 <div class="card-title">SOCIAL BOOSTER</div>
@@ -347,22 +395,21 @@
             <ul class="features">
                 <li><span class="icon icon-check">✔</span> <strong>עריכה מלאה לפרק</strong></li>
                 <li><span class="icon icon-check">✔</span> כולל כתוביות ומוזיקה</li>
-                <li><span class="icon icon-check">✔</span> <span style="color:var(--primary); font-weight:bold;">בנק סרטונים:</span> עד 8 סרטונים קצרים ערוכים לרשתות</li>
+                <li><span class="icon icon-check">✔</span> <span style="color:var(--primary-gold); font-weight:bold;">בנק סרטונים:</span> עד 8 סרטונים קצרים ערוכים לרשתות</li>
             </ul>
             <div class="gift-box">
                 <div class="gift-title">🎁 בונוס לבחירה <span class="gift-value">שווי 500 ₪</span></div>
                 <div class="gift-options">
                     <div class="gift-option-item">הקמת ערוץ + העלאת הפרק</div>
-                    <div style="text-align:center; font-weight:bold; font-size:0.8rem; margin:2px 0;">או</div>
+                    <div style="text-align:center; font-weight:bold; font-size:0.8rem; margin:4px 0; color:var(--primary-gold);">— או —</div>
                     <div class="gift-option-item">תוכן שיווקי מנוסח ל-2 סרטונים</div>
                 </div>
             </div>
             <a href="https://meshulam.co.il/quick_payment?b=9ebc55eeae66dde917047f1f62e38498" target="_blank" class="purchase-btn">לרכישה מהירה</a>
         </div>
 
-        <!-- Card 4: Premium -->
         <div class="card">
-             <div class="badge" style="background:#1e293b;">עסקים וארגונים</div>
+             <div class="badge" style="background:var(--bg-main); border: 1px solid var(--primary-gold); color: var(--primary-gold);">עסקים וארגונים</div>
             <div class="card-header">
                 <div class="card-title">חבילת PREMIUM</div>
                 <div class="price">9,999 <span class="currency">₪</span></div>
@@ -380,10 +427,9 @@
     </div>
 
     <div class="cta-section">
-        <h2 style="margin-top:0;">רוצים להתחיל? בואו נדבר תכלס</h2>
-        <p>שריינו לעצמכם את חבילת ההיכרות או בואו נבנה יחד את האסטרטגיה שלכם.</p>
+        <h2 style="margin-top:0;">רוצים להתחיל להקליט? בואו נדבר תכלס</h2>
+        <p style="color: var(--text-muted);">שריינו לעצמכם את חבילת ההיכרות או בואו נבנה יחד את האסטרטגיה שלכם.</p>
         
-        <!-- Updated WhatsApp Link -->
         <a href="https://wa.me/972504455170" target="_blank" class="contact-btn">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.599 2.669-.698c1.02.537 1.996.84 3.093.84h.002c3.064 0 5.648-2.585 5.649-5.766.001-3.18-2.585-5.764-5.648-5.764h-.305zm0 13.828c-1.896 0-3.526-.653-4.808-1.764l-5.369 1.409 1.436-5.234c-1.258-1.428-2.011-3.23-2.011-5.183 0-4.427 3.6-8.028 8.028-8.028s8.028 3.601 8.028 8.028-3.6 8.028-8.028 8.028h-1.276z"/></svg>
             לפרטים והזמנות טל/ווצאפ 050-4455170
