@@ -43,9 +43,6 @@
         header {
             text-align: center;
             margin-bottom: 4rem;
-            /* החלפתי לתמונה של מיקרופונים לפודקאסט בלבד (ללא אנשים/כלים).
-               שיניתי את ה-rgba הראשון מ-0.85 ל-0.50 כדי שהתמונה תהיה הרבה יותר ברורה.
-            */
             background-image: linear-gradient(to bottom, rgba(255,255,255,0.50), rgba(248, 250, 252, 1)), url('https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center center;
@@ -161,6 +158,19 @@
             font-size: 1.75rem;
             vertical-align: top;
             color: var(--text-muted);
+        }
+
+        /* עיצוב התשלומים החדש - קטן אך בולט */
+        .installment-badge {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+            background-color: #eef2ff; /* רקע אינדיגו בהיר מאוד */
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
         }
 
         .period {
@@ -342,6 +352,7 @@
             <div class="card-header">
                 <div class="card-title">חבילת BASIC</div>
                 <div class="price">590 <span class="currency">₪</span></div>
+                <div class="installment-badge">רק 59₪ ב-10 תשלומים</div>
             </div>
             <ul class="features">
                 <li><span class="icon icon-check">✔</span> עריכת וידאו בסיסית</li>
@@ -361,6 +372,7 @@
             <div class="card-header">
                 <div class="card-title">חבילת PRO</div>
                 <div class="price">1,200 <span class="currency">₪</span></div>
+                <div class="installment-badge">רק 120₪ ב-10 תשלומים</div>
             </div>
             <ul class="features">
                 <li><span class="icon icon-check">✔</span> <strong>כל מה שב-BASIC</strong></li>
@@ -383,6 +395,7 @@
             <div class="card-header">
                 <div class="card-title">SOCIAL BOOSTER</div>
                 <div class="price">3,900 <span class="currency">₪</span></div>
+                <div class="installment-badge">רק 390₪ ב-10 תשלומים</div>
             </div>
             <ul class="features">
                 <li><span class="icon icon-check">✔</span> <strong>עריכה מלאה לפרק</strong></li>
@@ -406,6 +419,7 @@
                 <div class="card-title">חבילת PREMIUM</div>
                 <div class="price">9,999 <span class="currency">₪</span></div>
                 <div class="period">עבור 3 פרקים (3,333 ₪ לפרק)</div>
+                <div class="installment-badge">רק 999₪ ב-10 תשלומים</div>
             </div>
             <ul class="features">
                 <li><span class="icon icon-check">✔</span> <strong>הפקה מלאה של 3 פרקים</strong></li>
